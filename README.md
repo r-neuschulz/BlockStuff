@@ -17,10 +17,10 @@ BlockStuff is a comprehensive Magisk module designed to enhance productivity by 
 
 # Features
 
-- Blocks Ads
-- Blocks Android Apps Ads
-- Blocks Systemwide Capacity Drainers (YouTube, Reddit, etc.)
-- Allows Whatsapp, Telegram, and LinkedIn (cause I actually need those)
+- 🛑 Blocks Ads
+- 🛑 Blocks Android Apps Ads
+- 🛑 Blocks Systemwide Capacity Drainers (YouTube, Reddit, Facebook, TikTok, etc.)
+- ✅ Allows Whatsapp, Telegram, and LinkedIn (cause I actually need those)
 
 # Download
 
