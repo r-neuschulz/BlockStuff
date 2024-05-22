@@ -45,8 +45,12 @@ jobs:
     - name: Delete unneded file(s)
       run: |
         rm -rf social_hosts
-    - name: Commit and Push Changes
+    - name: Commit and Push Changes if Needed
       run: |
-        git add hosts
-        git commit -m "💻 Automatic Update of hosts File"
-        git push origin main --force
+        if ! git diff --quiet; then
+          git add hosts
+          git commit -m "💻 Automatic Update of hosts File"
+          git push origin main --force
+        else
+          echo "No changes to commit"
+        fi
