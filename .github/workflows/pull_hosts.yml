@@ -49,4 +49,4 @@ jobs:
       run: |
         git add hosts
         git commit -m "💻 Automatic Update of hosts File"
-        git push origin main
+        git push origin main --force
