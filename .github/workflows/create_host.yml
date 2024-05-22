@@ -31,7 +31,12 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y php-cli curl
-
+        
+    - name: Check PHP version
+      run: |
+        echo "Checking PHP version:"
+        php -v
+    
     - name: Download converter.php
       run: |
         curl -o converter.php https://gist.github.com/r-neuschulz/f73ab062f074ddcec21fd02373210860/raw/converter.php
@@ -40,6 +45,7 @@ jobs:
       run: |
         echo "Listing files before running PHP script:"
         ls -la
+        cat converter.php
 
     - name: Run Script
       run: |
