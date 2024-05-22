@@ -26,6 +26,9 @@ jobs:
     - name: Amend social_hosts to hosts file
       run: |
         sed -i '/^# Updated:/ r social_hosts' hosts
+    - name: Whitelist Telegram, LinkedIn and WhatsApp
+      run: |
+        sed -i -e '/# WhatsApp/,/#/ { /# WhatsApp/! { /#/! d } }' -e '/# Telegram/,/#/ { /# Telegram/! { /#/! d } }' -e '/# LinkedIn/,/#/ { /# LinkedIn/! { /#/! d } }' hosts
     - name: Commit and Push Changes
       run: |
         git add hosts
