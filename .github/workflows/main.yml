@@ -16,15 +16,15 @@ jobs:
         run: |
           ls -la
           cd downloads
-          # Get latest version of IncreaseProd
-          fileVersion=$(curl -s "https://api.github.com/repos/r-neuschulz/IncreaseProd/tags" | jq -r '.[0].name')
+          # Get latest version of BlockStuff
+          fileVersion=$(curl -s "https://api.github.com/repos/r-neuschulz/BlockStuff/tags" | jq -r '.[0].name')
           echo $fileVersion
-          fileName="IncreaseProd-$fileVersion.zip"
+          fileName="BlockStuff-$fileVersion.zip"
           echo $fileName
-          fileURL="https://github.com/r-neuschulz/IncreaseProd/releases/download/$fileVersion/$fileName"
+          fileURL="https://github.com/r-neuschulz/BlockStuff/releases/download/$fileVersion/$fileName"
           wget -q $fileURL
           unzip -d ZIP $fileName
-          wget -q https://raw.githubusercontent.com/r-neuschulz/IncreaseProd/master/hosts
+          wget -q https://raw.githubusercontent.com/r-neuschulz/BlockStuff/master/hosts
           cp -u hosts ZIP/system/etc/
           rm hosts
           rm $fileName
@@ -43,14 +43,14 @@ jobs:
           # Format the new version
           newVersion="v${major}.${minor}"
           echo "id=SH_Blocker
-          name=IncreaseProd
+          name=BlockStuff
           version=$newVersion
           versionCode=7
           author=r-neuschulz
           description=🦾 Let's block this shit" > module.prop
-          zip -r IncreaseProd-$newVersion.zip *
+          zip -r BlockStuff-$newVersion.zip *
           mkdir temp
-          mv IncreaseProd-$newVersion.zip temp
+          mv BlockStuff-$newVersion.zip temp
           cd ..
           echo "Build Done"
           echo newVersion=${newVersion} >> $GITHUB_ENV
@@ -62,7 +62,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.newVersion }}
-          release_name: IncreaseProd Module
+          release_name: BlockStuff Module
           body: |
             # Changelog
             - Updated Hosts File
@@ -76,6 +76,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./downloads/ZIP/temp/IncreaseProd-${{ env.newVersion }}.zip
-          asset_name: IncreaseProd-${{ env.newVersion }}.zip
+          asset_path: ./downloads/ZIP/temp/BlockStuff-${{ env.newVersion }}.zip
+          asset_name: BlockStuff-${{ env.newVersion }}.zip
           asset_content_type: application/zip
