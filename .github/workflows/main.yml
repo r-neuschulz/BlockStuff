@@ -15,10 +15,10 @@ jobs:
       - name: Start Building
         run: |
           cd downloads
-          # Get latest version of BlockAds
+          # Get latest version of IncreaseProd
           fileVersion=$(curl -s "https://api.github.com/repos/r-neuschulz/IncreaseProd/tags" | jq -r '.[0].name')
           echo $fileVersion
-          fileName="BlockAds-$fileVersion.zip"
+          fileName="IncreaseProd-$fileVersion.zip"
           echo $fileName
           fileURL="https://github.com/r-neuschulz/IncreaseProd/releases/download/$fileVersion/$fileName"
           wget -q $fileURL
@@ -47,9 +47,9 @@ jobs:
           versionCode=7
           author=r-neuschulz
           description=🦾 Let's block this shit" > module.prop
-          zip -r BlockAds-$newVersion.zip *
+          zip -r IncreaseProd-$newVersion.zip *
           mkdir temp
-          mv BlockAds-$newVersion.zip temp
+          mv IncreaseProd-$newVersion.zip temp
           cd ..
           echo "Build Done"
           echo newVersion=${newVersion} >> $GITHUB_ENV
