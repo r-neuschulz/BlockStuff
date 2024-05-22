@@ -20,10 +20,10 @@ jobs:
     - name: Pull latest changes
       run: |
         git pull origin main
-    - name: Fetch StevenBlack's hosts file
+    - name: Fetch StevenBlacks hosts file
       run: |
         curl -o hosts https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-    - name: Fetch StevenBlack's social hosts file
+    - name: Fetch StevenBlacks social_hosts file
       run: |
         curl -o social_hosts https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social-only/hosts
     - name: Amend social_hosts to hosts file
@@ -42,6 +42,9 @@ jobs:
     - name: Delete invalid lines in hosts file
       run: |
         sed -i '/^\(# \|0\.0\.0\.0 \)/!d' hosts
+    - name: Delete unneded file(s)
+      run: |
+        rm -rf social_hosts
     - name: Commit and Push Changes
       run: |
         git add hosts
