@@ -1,18 +1,18 @@
-![Downloads](https://img.shields.io/github/downloads/r-neuschulz/IncreaseProd/total?color=green&style=for-the-badge)
-![Release](https://img.shields.io/github/v/release/r-neuschulz/IncreaseProd?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/r-neuschulz/IncreaseProd?style=for-the-badge)
+![Downloads](https://img.shields.io/github/downloads/r-neuschulz/BlockStuff/total?color=green&style=for-the-badge)
+![Release](https://img.shields.io/github/v/release/r-neuschulz/BlockStuff?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/r-neuschulz/BlockStuff?style=for-the-badge)
 
 <p align="center">
-  <img src="IncreaseProd_logo.png" width="50%">
+  <img src="BlockStuff_logo.png" width="40%">
 </p>
 
-# IncreaseProd
+# BlockStuff
 
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Magisk](https://img.shields.io/badge/Magisk-8A2BE2?style=for-the-badge&logo=magisk&logoColor=white)
 ![Root](https://img.shields.io/badge/Root-ff0000?style=for-the-badge&logo=superuser&logoColor=white)
 
-IncreaseProd is a comprehensive Magisk module designed to enhance productivity by blocking advertisements, excluding focus-draining content, and eliminating time-wasting distractions.
+BlockStuff is a comprehensive Magisk module designed to enhance productivity by blocking advertisements, excluding focus-draining content, and eliminating time-wasting distractions. It just blocks stuff that isn't worth your valuable time, attention, and compute.
 
 
 # Features
@@ -23,7 +23,7 @@ IncreaseProd is a comprehensive Magisk module designed to enhance productivity b
 
 # Download
 
-- [Magisk Module](https://github.com/r-neuschulz/IncreaseProd/releases)
+- [Magisk Module](https://github.com/r-neuschulz/BlockStuff/releases)
 
 # Updates
 
