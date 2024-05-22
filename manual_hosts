@@ -1,0 +1,10 @@
+# Block YouTube
+0.0.0.0 youtube.com
+0.0.0.0 youtu.be
+0.0.0.0 ytimg.com
+0.0.0.0 youtubei.googleapis.com
+0.0.0.0 youtube.googleapis.com
+0.0.0.0 www.youtube-nocookie.com
+0.0.0.0 gaming.youtube.com
+0.0.0.0 music.youtube.com
+0.0.0.0 kids.youtube.com
