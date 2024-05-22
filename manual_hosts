@@ -8,6 +8,7 @@
 0.0.0.0 gaming.youtube.com
 0.0.0.0 music.youtube.com
 0.0.0.0 kids.youtube.com
+0.0.0.0 m.youtube.com
 # Block Reddit
 0.0.0.0 redd.it
 0.0.0.0 redditblog.com
