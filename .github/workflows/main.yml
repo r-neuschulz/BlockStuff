@@ -34,6 +34,10 @@ jobs:
           # Extract the major and minor version components
           major=$(echo "$currentVersion" | awk -F'.' '{print substr($1,2)}')
           minor=$(echo "$currentVersion" | awk -F'.' '{print $2}')
+
+          echo $major
+          echo $minor
+          
           # Increment the minor version, and reset to 0 if it reaches 99
           minor=$((minor + 1))
           if [ "$minor" -eq 100 ]; then
