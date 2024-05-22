@@ -17,11 +17,15 @@ jobs:
         git config user.name "r-neuschulz"
         git config user.email "r-neuschulz@protonmail.com"
 
+    - name: Pull latest changes
+      run: |
+        git pull origin main
+
     - name: Remove old file
       run: |
-          git rm hosts
-          git commit -m "Removed Host File"
-          git push origin main
+        git rm hosts
+        git commit -m "Removed Host File"
+        git push origin main
     
     - name: Set up environment
       run: |
@@ -75,6 +79,7 @@ jobs:
 
     - name: Commit and Push Changes
       run: |
+        git pull origin main
         git add hosts
         git commit -m "Update hosts file"
         git push origin main
