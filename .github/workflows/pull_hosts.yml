@@ -13,6 +13,15 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: setup git config
+      run: |
+        git config user.name "r-neuschulz"
+        git config user.email "r-neuschulz@protonmail.com"
+
+    - name: Pull latest changes
+      run: |
+        git pull origin main
+
     - name: Fetch StevenBlack's social hosts file
       run: |
         curl -o hosts https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts
