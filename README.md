@@ -20,6 +20,7 @@ BlockStuff is a comprehensive Magisk module designed to enhance productivity by 
 - Blocks Ads
 - Blocks Android Apps Ads
 - Blocks Systemwide Capacity Drainers (YouTube, Reddit, etc.)
+- Allows Whatsapp, Telegram, and LinkedIn (cause I actually need those)
 
 # Download
 
@@ -27,15 +28,17 @@ BlockStuff is a comprehensive Magisk module designed to enhance productivity by 
 
 # Updates
 
-This module is designed to work out-of-the-box and will be occasionally updated as needed.
+This module is designed to work out-of-the-box and will be occasionally (2/month) updated as needed.
 
 # Credits
 
 - [@topjohnwu](https://github.com/topjohnwu) for Magisk.
 - [@Zackptg5](https://github.com/Zackptg5/MMT-Extended) for the Magisk Template.
-- [OISD](https://oisd.nl/) for the Host File.
-- [1Hosts](https://github.com/badmojr/1Hosts) for the Host File.
+- [OISD](https://oisd.nl/) for the initial hosts file.
+- [1Hosts](https://github.com/badmojr/1Hosts) for the initial hosts file.
+- [@StevenBlack](https://github.com/StevenBlack/hosts) for the amazing hosts file
 - [BlockAds](https://github.com/pantsufan/BlockAds) for the initial project inspiration and foundation.
+
 
 
 # Additional Information
