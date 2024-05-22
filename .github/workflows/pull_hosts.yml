@@ -24,7 +24,7 @@ jobs:
 
     - name: Fetch StevenBlack's social hosts file
       run: |
-        curl -o hosts https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts
+        curl -o hosts https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts
 
     - name: Commit and Push Changes
       run: |
