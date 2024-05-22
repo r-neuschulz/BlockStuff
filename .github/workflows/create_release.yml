@@ -46,12 +46,12 @@ jobs:
           fi
           # Format the new version
           newVersion="v${major}.${minor}"
-          echo "id=SH_Blocker
+          echo "id=blockstuff
           name=BlockStuff
           version=$newVersion
           versionCode=7
           author=r-neuschulz
-          description=🦾 Let's block this shit" > module.prop
+          description=🦾 Let's block this sh*t" > module.prop
           zip -r BlockStuff-$newVersion.zip *
           mkdir temp
           mv BlockStuff-$newVersion.zip temp
