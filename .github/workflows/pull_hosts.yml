@@ -21,6 +21,7 @@ jobs:
       run: |
         git pull origin main
     - name: Fetch StevenBlack's hosts file
+      run: |
         curl -o hosts https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
     - name: Fetch StevenBlack's social hosts file
       run: |
