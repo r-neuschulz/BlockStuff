@@ -25,6 +25,7 @@ It is primarily made by me for me. But if you see a benefit for yourself, feel f
 
 # Download
 
+- [Magisk](https://github.com/topjohnwu/Magisk/releases)
 - [Magisk Module](https://github.com/r-neuschulz/BlockStuff/releases)
 
 # Updates
