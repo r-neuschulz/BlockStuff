@@ -1,4 +1,4 @@
-name: BlockAds
+name: Create Release Bundle
 
 on:
   workflow_dispatch:
