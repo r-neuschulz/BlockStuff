@@ -1,0 +1,24 @@
+name: Update Hosts File
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 1 * *"
+
+jobs:
+  build-hosts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Fetch StevenBlack's social hosts file
+      run: |
+        curl -o hosts https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts
+
+    - name: Commit and Push Changes
+      run: |
+        git add hosts
+        git commit -m "🤖 Automatic Update hosts file"
+        git push origin main
