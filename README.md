@@ -14,6 +14,7 @@
 
 BlockStuff is a comprehensive Magisk module designed to enhance productivity by blocking advertisements, excluding focus-draining content, and eliminating time-wasting distractions. It just blocks stuff that isn't worth your valuable time, attention, and compute.
 
+It is primarily made by me for me. But if you see a benefit for yourself, feel free to give this project a star.
 
 # Features
 
@@ -28,7 +29,7 @@ BlockStuff is a comprehensive Magisk module designed to enhance productivity by 
 
 # Updates
 
-This module is designed to work out-of-the-box and will be occasionally (2/month) updated as needed.
+This module is designed to work out-of-the-box and will be regularly (2x/month) updated. Additional updates as needed.
 
 # Credits
 
