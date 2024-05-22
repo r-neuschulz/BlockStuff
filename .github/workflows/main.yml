@@ -14,6 +14,7 @@ jobs:
 
       - name: Start Building
         run: |
+          ls -la
           cd downloads
           # Get latest version of IncreaseProd
           fileVersion=$(curl -s "https://api.github.com/repos/r-neuschulz/IncreaseProd/tags" | jq -r '.[0].name')
