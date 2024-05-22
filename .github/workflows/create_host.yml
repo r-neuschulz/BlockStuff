@@ -36,10 +36,20 @@ jobs:
       run: |
         curl -o converter.php https://gist.github.com/r-neuschulz/f73ab062f074ddcec21fd02373210860/raw/converter.php
 
+    - name: List files before running PHP script
+      run: |
+        echo "Listing files before running PHP script:"
+        ls -la
+
     - name: Run Script
       run: |
         echo "Project Lite"
         php converter.php
+
+        echo "Listing files after running PHP script:"
+        ls -la
+        echo "EoF"
+        
         sed -i "1,6d" AdguardMobileAds.txt
         sed -i "1,6d" OISD.txt
         sed -i "1,6d" AdguardMobileSpyware.txt
