@@ -32,11 +32,11 @@ It is primarily made by me for me. But if you see a benefit for yourself, feel f
 
 This module is designed to work out-of-the-box and will be regularly (2x/month) updated. Additional updates as needed.
 
-# How to run.
-- Download the realease .zip
-- Install using Magisk Module Installer
-- User Brave Browser (as chrome and edge will circumvent /etc/hosts)
-- (Optional) Disable Chrome
+# How to use
+1. Download the realease .zip
+2. Install using Magisk Module Installer
+3. Use Brave Browser (as chrome and edge will circumvent /etc/hosts)
+4. (Optional) Disable Chrome
 
 # Credits
 
