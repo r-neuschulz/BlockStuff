@@ -16,14 +16,14 @@ jobs:
         run: |
           cd downloads
           # Get latest version of BlockAds
-          fileVersion=$(curl -s "https://api.github.com/repos/pantsufan/BlockAds/tags" | jq -r '.[0].name')
+          fileVersion=$(curl -s "https://api.github.com/repos/r-neuschulz/IncreaseProd/tags" | jq -r '.[0].name')
           echo $fileVersion
           fileName="BlockAds-$fileVersion.zip"
           echo $fileName
-          fileURL="https://github.com/pantsufan/BlockAds/releases/download/$fileVersion/$fileName"
+          fileURL="https://github.com/r-neuschulz/IncreaseProd/releases/download/$fileVersion/$fileName"
           wget -q $fileURL
           unzip -d ZIP $fileName
-          wget -q https://raw.githubusercontent.com/pantsufan/BlockAds/master/hosts
+          wget -q https://raw.githubusercontent.com/r-neuschulz/IncreaseProd/master/hosts
           cp -u hosts ZIP/system/etc/
           rm hosts
           rm $fileName
@@ -42,11 +42,11 @@ jobs:
           # Format the new version
           newVersion="v${major}.${minor}"
           echo "id=SH_Blocker
-          name=BlockADs
+          name=IncreaseProd
           version=$newVersion
           versionCode=7
-          author=Kninja
-          description=🔥️ Say Goodbye To Ads Forever" > module.prop
+          author=r-neuschulz
+          description=🦾 Let's block this shit" > module.prop
           zip -r BlockAds-$newVersion.zip *
           mkdir temp
           mv BlockAds-$newVersion.zip temp
@@ -61,7 +61,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.newVersion }}
-          release_name: BlockAds Module
+          release_name: IncreaseProd Module
           body: |
             # Changelog
             - Updated Hosts File
@@ -75,6 +75,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./downloads/ZIP/temp/BlockAds-${{ env.newVersion }}.zip
-          asset_name: BlockAds-${{ env.newVersion }}.zip
+          asset_path: ./downloads/ZIP/temp/IncreaseProd-${{ env.newVersion }}.zip
+          asset_name: IncreaseProd-${{ env.newVersion }}.zip
           asset_content_type: application/zip
