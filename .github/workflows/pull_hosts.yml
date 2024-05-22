@@ -34,7 +34,14 @@ jobs:
         sed -i -e '/# WhatsApp/,/#/ { /# WhatsApp/! { /#/! d } }' -e '/# Telegram/,/#/ { /# Telegram/! { /#/! d } }' -e '/# LinkedIn/,/#/ { /# LinkedIn/! { /#/! d } }' hosts
     - name: Amend manual_hosts to hosts file
       run: |
-        cat manual_hosts >> hosts   
+        cat manual_hosts >> hosts
+    - name: Check for invalid lines in hosts file
+      run: |
+        invalid_lines=$(grep -Ev '^(#\s|0\.0\.0\.0\s)' hosts | wc -l)
+        echo "Number of invalid lines: $invalid_lines"
+    - name: Delete invalid lines in hosts file
+      run: |
+        sed -i '/^\(# \|0\.0\.0\.0 \)/!d' hosts
     - name: Commit and Push Changes
       run: |
         git add hosts
