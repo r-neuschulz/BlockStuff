@@ -20,5 +20,5 @@ jobs:
     - name: Commit and Push Changes
       run: |
         git add hosts
-        git commit -m "🤖 Automatic Update hosts file"
+        git commit -m "💻 Automatic Update of hosts File"
         git push origin main
