@@ -30,17 +30,13 @@ jobs:
     - name: Set up environment
       run: |
         sudo apt-get update
-        sudo apt-get install -y php-cli curl
+        sudo apt-get install -y php-cli
         
     - name: Check PHP version
       run: |
         echo "Checking PHP version:"
         php -v
     
-    - name: Download converter.php
-      run: |
-        curl -o converter.php https://gist.github.com/r-neuschulz/f73ab062f074ddcec21fd02373210860/raw/converter.php
-
     - name: List files before running PHP script
       run: |
         echo "Listing files before running PHP script:"
@@ -97,5 +93,5 @@ jobs:
       run: |
         git pull origin main
         git add hosts
-        git commit -m "Update hosts file"
+        git commit -m "🤖 Automatic Update hosts file"
         git push origin main
