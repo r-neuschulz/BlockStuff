@@ -92,6 +92,9 @@ jobs:
         run: |
           mkdir temp
           mv BlockStuff-${{ env.newVersion }}.zip temp
+          pwd temp
+          cd temp 
+          ls -la
 
       - name: Indicate Build Completion
         run: echo "Build Done"
