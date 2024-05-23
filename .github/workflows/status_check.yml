@@ -42,7 +42,7 @@ jobs:
       - name: Fetch update_json workflow status
         id: update_json
         run: |
-          RESPONSE=$(gh api repos/${{ github.repository }}/actions/workflows/update_json.yml/runs)
+          RESPONSE=$(gh api repos/${ github.repository }}/actions/workflows/update_json.yml/runs)
           echo "API Response for update_json: $RESPONSE"
           STATUS=$(echo "$RESPONSE" | jq -r '.workflow_runs[0].conclusion')
           echo "::set-output name=status::$STATUS"
@@ -57,10 +57,14 @@ jobs:
           fi
           cat status.txt
           
-      - name: Commit and push status
+      - name: Commit and push status if changed
         run: |
-          git add status.txt
-          git commit -m "Update composite status [skip ci]"
-          git push
+          if ! git diff --exit-code status.txt; then
+            git add status.txt
+            git commit -m "Update composite status [skip ci]"
+            git push
+          else
+            echo "No changes to commit."
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
