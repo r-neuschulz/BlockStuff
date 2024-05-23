@@ -9,15 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Create Temp Folder
-        run: mkdir downloads
-
+  
       - name: List Directory Contents
         run: ls -la
-
-      - name: Change to Downloads Directory
-        run: cd downloads
-
+        
       - name: Fetch Latest Version of BlockStuff
         run: |
           fileVersion=$(curl -s "https://api.github.com/repos/r-neuschulz/BlockStuff/tags" | jq -r '.[0].name')
@@ -90,7 +85,7 @@ jobs:
 
       - name: Move Zip to Temp Directory
         run: |
-          mkdir temp
+          mkdir ZIP/temp
           mv BlockStuff-${{ env.newVersion }}.zip ZIP/temp
 
       - name: Indicate Build Completion
