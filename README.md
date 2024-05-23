@@ -1,3 +1,4 @@
+![Build Status](https://img.shields.io/badge/Build-unknown-lightgrey?style=for-the-badge)
 ![Downloads](https://img.shields.io/github/downloads/r-neuschulz/BlockStuff/total?color=green&style=for-the-badge)
 ![Release](https://img.shields.io/github/v/release/r-neuschulz/BlockStuff?style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/r-neuschulz/BlockStuff?style=for-the-badge)
