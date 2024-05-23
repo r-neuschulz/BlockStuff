@@ -2,7 +2,7 @@ name: Status Check
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '15 0 * * *'  # Runs every hour
   workflow_dispatch:
 
 jobs:
