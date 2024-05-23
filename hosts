@@ -141916,6 +141916,7 @@
 0.0.0.0 ytimg.k.google.com  
 # Block Reddit
 0.0.0.0 redd.it
+0.0.0.0 www.redd.it
 0.0.0.0 redditblog.com
 0.0.0.0 reddit.com
 0.0.0.0 www.reddit.com
