@@ -44,4 +44,4 @@ This module is designed to work out-of-the-box and will be regularly (2x/month) 
 
 # Additional Information
 
-ImproveProd aims to provide a streamlined, distraction-free experience for Android users by targeting and blocking sources of unwanted content and time sinks. It leverages the hosts file to ensure system-wide effectiveness and reliability. Will require root. 
+BlockStuff aims to provide a streamlined, distraction-free experience for Android users by targeting and blocking sources of unwanted content and time sinks. It leverages the hosts file to ensure system-wide effectiveness and reliability. As such, it requires root. 
