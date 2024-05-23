@@ -12,52 +12,92 @@ jobs:
       - name: Create Temp Folder
         run: mkdir downloads
 
-      - name: Start Building
+      - name: List Directory Contents
+        run: ls -la
+
+      - name: Change to Downloads Directory
+        run: cd downloads
+
+      - name: Fetch Latest Version of BlockStuff
         run: |
-          ls -la
-          cd downloads
-          # Get latest version of BlockStuff
           fileVersion=$(curl -s "https://api.github.com/repos/r-neuschulz/BlockStuff/tags" | jq -r '.[0].name')
           echo $fileVersion
-          fileName="BlockStuff-$fileVersion.zip"
+          echo "fileVersion=${fileVersion}" >> $GITHUB_ENV
+
+      - name: Set File Variables
+        run: |
+          fileName="BlockStuff-${{ env.fileVersion }}.zip"
+          fileURL="https://github.com/r-neuschulz/BlockStuff/releases/download/${{ env.fileVersion }}/${fileName}"
           echo $fileName
-          fileURL="https://github.com/r-neuschulz/BlockStuff/releases/download/$fileVersion/$fileName"
-          wget -q $fileURL
-          unzip -d ZIP $fileName
-          wget -q https://raw.githubusercontent.com/r-neuschulz/BlockStuff/master/hosts
-          cp -u hosts ZIP/system/etc/
+          echo $fileURL
+          echo "fileName=${fileName}" >> $GITHUB_ENV
+          echo "fileURL=${fileURL}" >> $GITHUB_ENV
+
+      - name: Download BlockStuff Zip
+        run: wget -q ${{ env.fileURL }}
+
+      - name: Unzip BlockStuff
+        run: unzip -d ZIP ${{ env.fileName }}
+
+      - name: Download Hosts File
+        run: wget -q https://raw.githubusercontent.com/r-neuschulz/BlockStuff/master/hosts
+
+      - name: Copy Hosts File to ZIP
+        run: cp -u hosts ZIP/system/etc/
+
+      - name: Clean Up Hosts and Zip Files
+        run: |
           rm hosts
-          rm $fileName
-          cd ZIP
-          # Change version number
-          currentVersion=$fileVersion
-          # Extract the major and minor version components
+          rm ${{ env.fileName }}
+
+      - name: Change to ZIP Directory
+        run: cd ZIP
+
+      - name: Extract Current Version Components
+        run: |
+          currentVersion=${{ env.fileVersion }}
           major=$(echo "$currentVersion" | awk -F'.' '{print substr($1,2)}')
           minor=$(echo "$currentVersion" | awk -F'.' '{print $2}')
-
           echo $major
           echo $minor
-          
-          # Increment the minor version, and reset to 0 if it reaches 99
+          echo "major=${major}" >> $GITHUB_ENV
+          echo "minor=${minor}" >> $GITHUB_ENV
+
+      - name: Increment Version Number
+        run: |
+          minor=${{ env.minor }}
+          major=${{ env.major }}
           minor=$((minor + 1))
           if [ "$minor" -eq 100 ]; then
             minor=0
             major=$((major + 1))
           fi
-          # Format the new version
           newVersion="v${major}.${minor}"
+          echo $newVersion
+          echo "newVersion=${newVersion}" >> $GITHUB_ENV
+
+      - name: Create module.prop File
+        run: |
           echo "id=blockstuff
           name=BlockStuff
-          version=$newVersion
+          version=${{ env.newVersion }}
           versionCode=7
           author=r-neuschulz
           description=🦾 Let's block this sh*t" > module.prop
-          zip -r BlockStuff-$newVersion.zip *
+
+      - name: Zip the New Version
+        run: zip -r BlockStuff-${{ env.newVersion }}.zip *
+
+      - name: Move Zip to Temp Directory
+        run: |
           mkdir temp
-          mv BlockStuff-$newVersion.zip temp
-          cd ..
-          echo "Build Done"
-          echo newVersion=${newVersion} >> $GITHUB_ENV
+          mv BlockStuff-${{ env.newVersion }}.zip temp
+
+      - name: Indicate Build Completion
+        run: echo "Build Done"
+
+      - name: Set New Version Environment Variable
+        run: echo newVersion=${{ env.newVersion }} >> $GITHUB_ENV
 
       - name: Create Release
         id: create_release
