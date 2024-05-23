@@ -48,6 +48,8 @@ jobs:
       run: |
         rm -rf social_hosts
     - name: Commit and Push Changes if Needed
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       run: |
         if ! git diff --quiet; then
           git add hosts
