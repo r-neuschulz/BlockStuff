@@ -83,15 +83,15 @@ jobs:
           version=${{ env.newVersion }}
           versionCode=7
           author=r-neuschulz
-          description=🦾 Let's block this sh*t" > module.prop
+          description=🦾 Let's block this sh*t" > ZIP/module.prop
 
       - name: Zip the New Version
-        run: zip -r BlockStuff-${{ env.newVersion }}.zip *
+        run: zip -r BlockStuff-${{ env.newVersion }}.zip ZIP/*
 
       - name: Move Zip to Temp Directory
         run: |
           mkdir temp
-          mv BlockStuff-${{ env.newVersion }}.zip temp
+          mv BlockStuff-${{ env.newVersion }}.zip ZIP/temp
 
       - name: Indicate Build Completion
         run: echo "Build Done"
@@ -99,7 +99,6 @@ jobs:
       - name: Set New Version Environment Variable
         run: | 
           echo newVersion=${{ env.newVersion }} >> $GITHUB_ENV
-          ls -la
 
       - name: Create Release
         id: create_release
