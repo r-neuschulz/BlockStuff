@@ -1,7 +1,9 @@
 name: Update Hosts File
 
 on:
-  workflow_dispatch:
+  push:
+    paths:
+      - manual_hosts
   schedule:
     - cron: "0 0 * * 1"
 
