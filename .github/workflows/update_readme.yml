@@ -2,7 +2,7 @@ name: Update README with Build Status
 
 on:
   workflow_run:
-    workflows: ["Status Check"]
+    workflows: ["Update Status Check"]
     types:
       - completed
 
