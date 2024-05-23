@@ -141910,6 +141910,7 @@
 0.0.0.0 youtube.googleapis.com
 0.0.0.0 youtubei.googleapis.com
 0.0.0.0 ytimg.com
+0.0.0.0 www.ytimg.com
 0.0.0.0 ytimg.l.google.com
 0.0.0.0 ytimg.k.google.com  
 # Block Reddit
