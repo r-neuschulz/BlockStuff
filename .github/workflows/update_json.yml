@@ -1,9 +1,10 @@
 name: Update updateJson.json
 
 on:
-  release:
+  workflow_run:
+    workflows: ["Create Release Bundle"]
     types:
-      - published
+      - completed
 
 jobs:
   update-json:
