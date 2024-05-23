@@ -15,10 +15,10 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - name: setup git config
-      run: |
-        git config user.name "r-neuschulz"
-        git config user.email "r-neuschulz@protonmail.com"
+#    - name: setup git config
+#      run: |
+#        git config user.name "r-neuschulz"
+#        git config user.email "r-neuschulz@protonmail.com"
     - name: Pull latest changes
       run: |
         git pull origin main
