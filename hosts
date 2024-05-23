@@ -141905,7 +141905,6 @@
 0.0.0.0 googlevideo.com
 0.0.0.0 youtu.be
 0.0.0.0 youtube-nocookie.com
-0.0.0.0 youtube.com
 0.0.0.0 www.youtube.com
 0.0.0.0 youtube.googleapis.com
 0.0.0.0 youtubei.googleapis.com
@@ -141921,7 +141920,6 @@
 0.0.0.0 redditmedia.com
 0.0.0.0 redditspace.com
 0.0.0.0 old.reddit.com
-0.0.0.0 redditinc.com
 # Block Twitter
 0.0.0.0 ads-twitter.com
 0.0.0.0 periscope.tv
