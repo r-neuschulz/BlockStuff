@@ -2,7 +2,7 @@ name: Status Check
 
 on:
   workflow_run:
-    workflows: ["Create Release Bundle"]
+    workflows: ["Update updateJson.json"]
     types:
       - completed
 
