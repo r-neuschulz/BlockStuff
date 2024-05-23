@@ -1,9 +1,10 @@
 name: Create Release Bundle
 
 on:
-  push:
-    paths:
-      - hosts
+  workflow_run:
+    workflows: ["Update Hosts File"]
+    types:
+      - completed
 
 jobs:
   build:
