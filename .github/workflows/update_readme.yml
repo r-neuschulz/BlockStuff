@@ -1,9 +1,10 @@
 name: Update README with Build Status
 
 on:
-  push:
-    paths:
-      - status.txt
+  workflow_run:
+    workflows: ["Status Check"]
+    types:
+      - completed
 
 jobs:
   update-readme:
