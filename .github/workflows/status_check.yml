@@ -42,7 +42,7 @@ jobs:
       - name: Fetch update_json workflow status
         id: update_json
         run: |
-          RESPONSE=$(gh api repos/${ github.repository }}/actions/workflows/update_json.yml/runs)
+          RESPONSE=$(gh api repos/${{ github.repository }}/actions/workflows/update_json.yml/runs)
           echo "API Response for update_json: $RESPONSE"
           STATUS=$(echo "$RESPONSE" | jq -r '.workflow_runs[0].conclusion')
           echo "::set-output name=status::$STATUS"
