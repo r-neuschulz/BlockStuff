@@ -1,9 +1,9 @@
 name: Create Release Bundle
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: "5 0 * * 1"
+  push:
+    paths:
+      - hosts
 
 jobs:
   build:
