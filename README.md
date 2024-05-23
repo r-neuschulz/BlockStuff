@@ -37,10 +37,8 @@ This module is designed to work out-of-the-box and will be regularly (2x/month) 
 
 - [@topjohnwu](https://github.com/topjohnwu) for Magisk.
 - [@Zackptg5](https://github.com/Zackptg5/MMT-Extended) for the Magisk Template.
-- [OISD](https://oisd.nl/) for the initial hosts file.
-- [1Hosts](https://github.com/badmojr/1Hosts) for the initial hosts file.
-- [@StevenBlack](https://github.com/StevenBlack/hosts) for his amazing hosts files.
-- [BlockAds](https://github.com/pantsufan/BlockAds) for the initial project inspiration and foundation, thank you!
+- [@StevenBlack](https://github.com/StevenBlack) for his amazing [hosts](https://github.com/StevenBlack/hosts) files.
+- [@pantsufan](https://github.com/pantsufan) for the initial project inspiration and foundation with [BlockAds](https://github.com/pantsufan/BlockAds), thank you!
 
 
 # Additional Information
