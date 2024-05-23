@@ -1,8 +1,10 @@
 name: Status Check
 
 on:
-  schedule:
-    - cron: '15 0 * * *'  # Runs daily at 00:15 UTC
+  workflow_run:
+    workflows: ["Create Release Bundle"]
+    types:
+      - completed
 
 jobs:
   check-status:
