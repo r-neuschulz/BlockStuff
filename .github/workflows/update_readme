@@ -1,0 +1,39 @@
+name: Update README with Build Status
+
+on:
+  push:
+    paths:
+      - status.txt
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Read status from file
+        id: read_status
+        run: |
+          STATUS=$(cat status.txt)
+          echo "::set-output name=status::$STATUS"
+
+      - name: Update README
+        run: |
+          if [ "${{ steps.read_status.outputs.status }}" = "passing" ]; then
+            BADGE="![Build Status](https://img.shields.io/badge/Build-passing-green?style=for-the-badge)"
+          else
+            BADGE="![Build Status](https://img.shields.io/badge/Build-failing-red?style=for-the-badge)"
+          fi
+          sed -i 's|!\[Build Status\](https://img.shields.io/badge/Build-[a-z]*-[a-z]*?style=for-the-badge)|'"$BADGE"'|' README.md
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add README.md
+          git commit -m "Update build status badge"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
