@@ -14,15 +14,21 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --global user.name 'r-neuschulz'
-          git config --global user.email 'r-neuschulz@protonmail.com'
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Install GitHub CLI
+        run: sudo apt-get install gh -y
+
+      - name: Authenticate GitHub CLI
+        run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Check create_release workflow
         id: create_release
         run: |
           STATUS=$(gh api repos/${{ github.repository }}/actions/workflows/create_release.yml/runs --jq -r '.workflow_runs[0].conclusion')
           echo "::set-output name=status::$STATUS"
-      
+
       - name: Check pull_hosts workflow
         id: pull_hosts
         run: |
