@@ -3,7 +3,7 @@ name: Create Release Bundle
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 8 1,15 * *"
+    - cron: "5 0 * * 1"
 
 jobs:
   build:
