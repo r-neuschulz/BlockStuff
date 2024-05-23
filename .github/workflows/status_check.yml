@@ -21,24 +21,30 @@ jobs:
         run: sudo apt-get install gh -y
 
       - name: Authenticate GitHub CLI
-        run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
 
-      - name: Check create_release workflow
+      - name: Fetch create_release workflow status
         id: create_release
         run: |
-          STATUS=$(gh api repos/${{ github.repository }}/actions/workflows/create_release.yml/runs --jq -r '.workflow_runs[0].conclusion')
+          RESPONSE=$(gh api repos/${{ github.repository }}/actions/workflows/create_release.yml/runs)
+          echo "API Response for create_release: $RESPONSE"
+          STATUS=$(echo "$RESPONSE" | jq -r '.workflow_runs[0].conclusion')
           echo "::set-output name=status::$STATUS"
 
-      - name: Check pull_hosts workflow
+      - name: Fetch pull_hosts workflow status
         id: pull_hosts
         run: |
-          STATUS=$(gh api repos/${{ github.repository }}/actions/workflows/pull_hosts.yml/runs --jq -r '.workflow_runs[0].conclusion')
+          RESPONSE=$(gh api repos/${{ github.repository }}/actions/workflows/pull_hosts.yml/runs)
+          echo "API Response for pull_hosts: $RESPONSE"
+          STATUS=$(echo "$RESPONSE" | jq -r '.workflow_runs[0].conclusion')
           echo "::set-output name=status::$STATUS"
 
-      - name: Check update_json workflow
+      - name: Fetch update_json workflow status
         id: update_json
         run: |
-          STATUS=$(gh api repos/${{ github.repository }}/actions/workflows/update_json.yml/runs --jq -r '.workflow_runs[0].conclusion')
+          RESPONSE=$(gh api repos/${{ github.repository }}/actions/workflows/update_json.yml/runs)
+          echo "API Response for update_json: $RESPONSE"
+          STATUS=$(echo "$RESPONSE" | jq -r '.workflow_runs[0].conclusion')
           echo "::set-output name=status::$STATUS"
 
       - name: Determine composite status
