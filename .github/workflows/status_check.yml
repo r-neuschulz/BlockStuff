@@ -2,42 +2,53 @@ name: Status Check
 
 on:
   schedule:
-    - cron: '15 0 * * *'  # Runs every hour
+    - cron: '15 0 * * *'  # Runs daily at 00:15 UTC
   workflow_dispatch:
 
 jobs:
   check-status:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'r-neuschulz'
+          git config --global user.email 'r-neuschulz@protonmail.com'
+
       - name: Check create_release workflow
         id: create_release
         run: |
-          STATUS=$(gh api repos/${{ github.repository }}/actions/workflows/create_release.yml/runs --jq '.workflow_runs[0].conclusion')
+          STATUS=$(gh api repos/${{ github.repository }}/actions/workflows/create_release.yml/runs --jq -r '.workflow_runs[0].conclusion')
           echo "::set-output name=status::$STATUS"
       
       - name: Check pull_hosts workflow
         id: pull_hosts
         run: |
-          STATUS=$(gh api repos/${{ github.repository }}/actions/workflows/pull_hosts.yml/runs --jq '.workflow_runs[0].conclusion')
+          STATUS=$(gh api repos/${{ github.repository }}/actions/workflows/pull_hosts.yml/runs --jq -r '.workflow_runs[0].conclusion')
           echo "::set-output name=status::$STATUS"
 
       - name: Check update_json workflow
         id: update_json
         run: |
-          STATUS=$(gh api repos/${{ github.repository }}/actions/workflows/update_json.yml/runs --jq '.workflow_runs[0].conclusion')
+          STATUS=$(gh api repos/${{ github.repository }}/actions/workflows/update_json.yml/runs --jq -r '.workflow_runs[0].conclusion')
           echo "::set-output name=status::$STATUS"
 
       - name: Determine composite status
+        id: composite_status
         run: |
           if [ "${{ steps.create_release.outputs.status }}" != "success" ] || [ "${{ steps.pull_hosts.outputs.status }}" != "success" ] || [ "${{ steps.update_json.outputs.status }}" != "success" ]; then
             echo "failing" > status.txt
           else
             echo "passing" > status.txt
           fi
-        id: composite_status
-
-      - name: Upload status file
-        uses: actions/upload-artifact@v2
-        with:
-          name: composite-status
-          path: status.txt
+          cat status.txt
+          
+      - name: Commit and push status
+        run: |
+          git add status.txt
+          git commit -m "Update composite status [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
