@@ -32,7 +32,7 @@ It is primarily made by me for me. But if you see a benefit for yourself, feel f
 
 # Updates
 
-This module is designed to work out-of-the-box and will be regularly (2x/month) updated. Additional updates as needed.
+This module is designed to work out-of-the-box and is regularly updated (1x/week). Additional updates may come as needed.
 
 # Credits
 
