@@ -56,26 +56,45 @@ jobs:
           echo "minor=${minor}" >> $GITHUB_ENV
 
       - name: Increment Version Number
-        run: |
-          minor=${{ env.minor }}
-          major=${{ env.major }}
-          minor=$((minor + 1))
-          if [ "$minor" -eq 100 ]; then
-            minor=0
-            major=$((major + 1))
-          fi
-          newVersion="v${major}.${minor}"
-          echo $newVersion
-          echo "newVersion=${newVersion}" >> $GITHUB_ENV
+          run: |
+            minor=${{ env.minor }}
+            major=${{ env.major }}
+            
+            # Increment minor version, if it reaches 100, reset and increment major version
+            minor=$((minor + 1))
+            if [ "$minor" -eq 100 ]; then
+              minor=0
+              major=$((major + 1))
+            fi
+            
+            # Construct new version string
+            newVersion="v${major}.${minor}"
+            echo "New Version: $newVersion"
+            echo "newVersion=${newVersion}" >> $GITHUB_ENV
+            
+            # Calculate version code
+            versionCode=$((minor + 100 * major))
+            echo "Version Code: $versionCode"
+            echo "versionCode=${versionCode}" >> $GITHUB_ENV
+    
+    - name: Create module.prop File
+      run: |
+        # Fetch repository details using GitHub API
+        repoInfo=$(curl -s https://api.github.com/repos/${{ github.repository }})
+        repoName=$(echo "$repoInfo" | jq -r '.name')
+        repoDescription=$(echo "$repoInfo" | jq -r '.description')
+        repoAuthor=$(echo "$repoInfo" | jq -r '.owner.login')
+        
+        # Generate module.prop file with fetched details
+        
+        echo "id=${repoName,,}
+        name=${repoName}
+        version=${{ env.newVersion }}
+        versionCode=${{ env.versionCode }}
+        author=${repoAuthor}
+        description=${repoDescription}
+        updateJson=https://raw.githubusercontent.com/${{ github.repository }}/main/updateJson.json" > ZIP/module.prop
 
-      - name: Create module.prop File
-        run: |
-          echo "id=blockstuff
-          name=BlockStuff
-          version=${{ env.newVersion }}
-          versionCode=7
-          author=r-neuschulz
-          description=🦾 Let's block this sh*t" > ZIP/module.prop
 
       - name: Zip the New Version
         run: |
