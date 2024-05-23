@@ -42,10 +42,14 @@ jobs:
     
     - name: Update updateJson.json
       run: |
-        jq ".version = \"${{ env.version }}\" | 
-            .versionCode = ${{ env.version_code }} | 
-            .zipUrl = \"${{ env.zip_url }}\" | 
-            .changelog = \"${{ env.changelog_url }}\"" updateJson.json > updateJson.tmp.json
+        jq --arg version "${{ env.version }}" \
+           --arg zip_url "${{ env.zip_url }}" \
+           --arg changelog_url "${{ env.changelog_url }}" \
+           --argjson version_code "${{ env.version_code }}" \
+           '.version = $version | 
+            .versionCode = $version_code | 
+            .zipUrl = $zip_url | 
+            .changelog = $changelog_url' updateJson.json > updateJson.tmp.json
         mv updateJson.tmp.json updateJson.json
     
     - name: Commit and Push Changes if Needed
