@@ -57,6 +57,8 @@ jobs:
           cat status.txt
           
       - name: Commit and push status if changed
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           if ! git diff --exit-code status.txt; then
             git add status.txt
@@ -65,5 +67,4 @@ jobs:
           else
             echo "No changes to commit."
           fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
