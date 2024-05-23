@@ -141893,7 +141893,9 @@
 # 0.0.0.0 example.com
 # Block YouTube
 0.0.0.0 youtube.com
+0.0.0.0 www.youtube.com
 0.0.0.0 youtu.be
+0.0.0.0 www.youtu.be
 0.0.0.0 ytimg.com
 0.0.0.0 youtubei.googleapis.com
 0.0.0.0 youtube.googleapis.com
@@ -141906,7 +141908,6 @@
 0.0.0.0 googlevideo.com
 0.0.0.0 www.googlevideo.com
 0.0.0.0 youtube-nocookie.com
-0.0.0.0 www.youtube.com
 0.0.0.0 youtube.googleapis.com
 0.0.0.0 youtubei.googleapis.com
 0.0.0.0 ytimg.com
