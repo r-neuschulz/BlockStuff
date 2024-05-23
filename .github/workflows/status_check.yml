@@ -64,7 +64,7 @@ jobs:
         run: |
           if ! git diff --exit-code status.txt; then
             git add status.txt
-            git commit -m "Update composite status [skip ci]"
+            git commit -m "📗 Automatic Update Status"
             git push
           else
             echo "No changes to commit."
