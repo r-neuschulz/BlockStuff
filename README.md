@@ -45,3 +45,13 @@ This module is designed to work out-of-the-box and is regularly updated (1x/week
 # Additional Information
 
 BlockStuff aims to provide a streamlined, distraction-free experience for Android users by targeting and blocking sources of unwanted content and time sinks. It leverages the hosts file to ensure system-wide effectiveness and reliability. As such, it requires root. 
+
+# ToDo
+
+- [x] Change hosts file to a more recent repo
+- [x] Allow for adding custom hosts entries
+- [ ] Check for www.* prefix on hosts for comprehensive blocking 
+- [x] Allow update directly through magisk
+- [ ] Change module building to a .zip in the main repo (which can be independently updated from the releases .zip) 
+- [ ] Add automatic deployment and testing to a rooted qemu instance
+- [ ] Update to the latest [MMT-extended package](https://github.com/Zackptg5/MMT-Extended) 
