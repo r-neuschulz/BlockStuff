@@ -54,4 +54,6 @@ BlockStuff aims to provide a streamlined, distraction-free experience for Androi
 - [x] Allow update directly through magisk
 - [ ] Change module building to a .zip in the main repo (which can be independently updated from the releases .zip) 
 - [ ] Add automatic deployment and testing to a rooted qemu instance
-- [ ] Update to the latest [MMT-extended package](https://github.com/Zackptg5/MMT-Extended) 
+- [ ] Update to the latest [MMT-extended package](https://github.com/Zackptg5/MMT-Extended)
+- [ ] Figure out a way to dynamically update hosts file (independent of module)
+- [ ] Improve Changelog notification inside module.
