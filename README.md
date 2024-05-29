@@ -57,3 +57,4 @@ BlockStuff aims to provide a streamlined, distraction-free experience for Androi
 - [ ] Update to the latest [MMT-extended package](https://github.com/Zackptg5/MMT-Extended)
 - [ ] Figure out a way to dynamically update hosts file (independent of module)
 - [ ] Improve Changelog notification inside module.
+- [ ] Add Metrics section
