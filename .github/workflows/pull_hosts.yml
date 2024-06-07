@@ -31,9 +31,9 @@ jobs:
     - name: Amend social_hosts to hosts file
       run: |
         sed -i '/^# Updated:/ r social_hosts' hosts
-    - name: Whitelist Telegram, LinkedIn and WhatsApp
+    - name: Whitelist Telegram and WhatsApp
       run: |
-        sed -i -e '/# WhatsApp/,/#/ { /# WhatsApp/! { /#/! d } }' -e '/# Telegram/,/#/ { /# Telegram/! { /#/! d } }' -e '/# LinkedIn/,/#/ { /# LinkedIn/! { /#/! d } }' hosts
+        sed -i -e '/# WhatsApp/,/#/ { /# WhatsApp/! { /#/! d } }' -e '/# Telegram/,/#/ { /# Telegram/! { /#/! d } }' hosts
     - name: Amend manual_hosts to hosts file
       run: |
         cat manual_hosts >> hosts
