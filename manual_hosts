@@ -37,6 +37,10 @@
 0.0.0.0 redditspace.com
 0.0.0.0 old.reddit.com
 
+# Block instagram
+0.0.0.0 www.instagram.com
+0.0.0.0 instagram.com
+
 # Block Twitter
 0.0.0.0 ads-twitter.com
 0.0.0.0 periscope.tv
