@@ -22,7 +22,7 @@ It is primarily made by me for me. But if you see a benefit for yourself, feel f
 - 🛑 Blocks Ads
 - 🛑 Blocks Android Apps Ads
 - 🛑 Blocks Systemwide Capacity Drainers (YouTube, Reddit, Facebook, TikTok, etc.)
-- ✅ Allows Whatsapp, Telegram, and LinkedIn (cause I actually need those)
+- ✅ Allows Whatsapp and Telegram (cause I actually need those)
 - 🔃 Easy Update via Magisk
 
 # Download
