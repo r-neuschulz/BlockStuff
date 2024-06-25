@@ -61,3 +61,8 @@
 0.0.0.0 x.com
 0.0.0.0 www.x.com
 
+# Nebula
+0.0.0.0 nebula.com
+0.0.0.0 nebula.tv
+0.0.0.0 www.nebula.tv
+
