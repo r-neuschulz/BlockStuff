@@ -1,4 +1,4 @@
-# Block YouTube
+I'm# Block YouTube
 0.0.0.0 youtube.com
 0.0.0.0 www.youtube.com
 0.0.0.0 youtu.be
@@ -66,7 +66,12 @@
 0.0.0.0 nebula.tv
 0.0.0.0 www.nebula.tv
 
+# LinkedIn 
+0.0.0.0 linkedin.com
+0.0.0.0 www.linkedin.com
+0.0.0.0 lnkd.in
+0.0.0.0 www.lnkd.in
+
 # Peter Watts
 0.0.0.0 rifters.com
 0.0.0.0 www.rifters.com
-
