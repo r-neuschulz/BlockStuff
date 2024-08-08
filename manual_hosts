@@ -75,3 +75,8 @@
 # Peter Watts
 0.0.0.0 rifters.com
 0.0.0.0 www.rifters.com
+
+# Awoiaf and Cosmere
+0.0.0.0 awoiaf.westeros.org
+0.0.0.0 coppermind.net
+0.0.0.0 17thshard.com
